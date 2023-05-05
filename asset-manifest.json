@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/chingu-voyages/v44-tier2-team-15/static/css/main.b5320759.css",
-    "main.js": "/chingu-voyages/v44-tier2-team-15/static/js/main.b503594d.js",
-    "index.html": "/chingu-voyages/v44-tier2-team-15/index.html",
-    "main.b5320759.css.map": "/chingu-voyages/v44-tier2-team-15/static/css/main.b5320759.css.map",
-    "main.b503594d.js.map": "/chingu-voyages/v44-tier2-team-15/static/js/main.b503594d.js.map"
+    "main.css": "/v44-tier2-team-15/static/css/main.b5320759.css",
+    "main.js": "/v44-tier2-team-15/static/js/main.450aaa31.js",
+    "index.html": "/v44-tier2-team-15/index.html",
+    "main.b5320759.css.map": "/v44-tier2-team-15/static/css/main.b5320759.css.map",
+    "main.450aaa31.js.map": "/v44-tier2-team-15/static/js/main.450aaa31.js.map"
   },
   "entrypoints": [
     "static/css/main.b5320759.css",
-    "static/js/main.b503594d.js"
+    "static/js/main.450aaa31.js"
   ]
 }
