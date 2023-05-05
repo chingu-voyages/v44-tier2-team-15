@@ -16,9 +16,6 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chingu-voyages/v44-tier2-team-15/issues"
-  },
   "homepage": "https://github.com/chingu-voyages/v44-tier2-team-15/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
