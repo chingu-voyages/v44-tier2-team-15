@@ -6,27 +6,21 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    margin: ${p => p.theme.space[0]}px;;
+    padding-top: ${p => p.theme.space[0]}px;;
+    padding-bottom: ${p => p.theme.space[0]}px;;
     font-family: ${p => p.theme.fonts.main};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    font-size: "16px";
-    font-weight: ${p => p.theme.fontWeights[0]};
+    font-size:  ${p => p.theme.fontSizes.s};
+    font-weight: ${p => p.theme.fontWeights.normal};
     line-height: ${p => p.theme.lineHeights.content};
-    letter-spacing: ${p => p.theme.letterSpacings.content};
-
-    color: ${p => p.theme.colors.primaryText};
-    background-color: ${p => p.theme.colors.bodyBg};
-
- 
-
+    color: ${p => p.theme.colors.darkBrown};
+    background-color: ${p => p.theme.colors.sandy};
   }
 
   h1,h2,h3,h4,h5,h6,p {
-    margin: 0;
+  margin: ${p => p.theme.space[0]}px;
   }
   a {
     text-decoration: none;
@@ -34,8 +28,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ul, ol {
-    padding: 0;
-    margin: 0;
+      padding: ${p => p.theme.space[0]}px;
+      margin: ${p => p.theme.space[0]}px;
     list-style: none;
   }
 
