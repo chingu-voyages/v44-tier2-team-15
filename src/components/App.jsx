@@ -1,16 +1,12 @@
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from './GlobalStyle';
+import { theme } from 'constants/theme';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      Hello world team
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <div>Hello world team</div>
+    </ThemeProvider>
   );
 };
