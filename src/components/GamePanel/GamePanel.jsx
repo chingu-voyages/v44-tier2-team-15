@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import GameControlls from 'components/GameControls/GameControls';
 import Leaderboard from 'components/Leaderboard/Leaderboard';
-import { PanelWrapp, BtnStyled } from './GamePanel.styled';
+import { BtnStyled, PanelWrapp } from './GamePanel.styled';
 import Modal from 'components/Modal';
 
 const GamePanel = () => {
@@ -16,6 +16,7 @@ const GamePanel = () => {
         <BtnStyled type="button" onClick={toogleModal}>
           Open settings
         </BtnStyled>
+
         <GameControlls />
         <Leaderboard />
       </PanelWrapp>

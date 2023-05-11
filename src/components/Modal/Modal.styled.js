@@ -14,11 +14,11 @@ export const ModalDiv = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 800px;
+  min-width: 800px;
+  padding: 40px;
   transform: translate(-50%, -50%);
-
-  & img {
-    object-fit: cover;
-    border-radius: ${p => p.theme.radii.normal};
-  }
+  display: flex;
+  flex-direction: column;
+  color: ${p => p.theme.colors.superLightgray};
+  background-color: ${p => p.theme.colors.medGreen};
 `;
