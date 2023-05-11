@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 class SceneOne extends Phaser.Scene {
     constructor() {
-      super({ key: 'scene1' });
+      super({ key: 'sc_one' });
     }
 
     preload() {
