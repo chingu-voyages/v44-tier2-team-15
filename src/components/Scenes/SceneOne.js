@@ -13,7 +13,8 @@ class SceneOne extends Phaser.Scene {
 
     create() {
       // Game logic
-      this.add.image(240, 320, 'game_bg')
+      this.add.image(0, 0, 'game_bg')
+
     }
 
     update() {
