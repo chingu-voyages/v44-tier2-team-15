@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import Game_background from '../../images/game/bg_main.png';
 
 class SceneOne extends Phaser.Scene {
     constructor() {
@@ -7,12 +8,12 @@ class SceneOne extends Phaser.Scene {
 
     preload() {
       // load background image
-      this.load.image('background', '../../images/bg/uncolored.png');
+      this.load.image('game_bg', Game_background);
     }
 
     create() {
       // Game logic
-      this.add.image(240, 320, 'background')
+      this.add.image(240, 320, 'game_bg')
     }
 
     update() {

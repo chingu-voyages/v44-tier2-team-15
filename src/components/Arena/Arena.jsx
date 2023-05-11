@@ -5,9 +5,7 @@ import SceneOne from 'components/Scenes/SceneOne';
 
 const Arena = () => {
 
-
   useEffect(() => {
-
     const config = {
       type: Phaser.AUTO,
       width: 800,
