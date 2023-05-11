@@ -1,13 +1,22 @@
 {
   "files": {
-    "main.css": "/v44-tier2-team-15/static/css/main.38b09629.css",
-    "main.js": "/v44-tier2-team-15/static/js/main.9879c698.js",
+    "main.css": "/v44-tier2-team-15/static/css/main.17654e45.css",
+    "main.js": "/v44-tier2-team-15/static/js/main.626a16b5.js",
+    "static/js/979.ebd63d18.chunk.js": "/v44-tier2-team-15/static/js/979.ebd63d18.chunk.js",
+    "static/js/423.d18235fd.chunk.js": "/v44-tier2-team-15/static/js/423.d18235fd.chunk.js",
+    "static/media/Robtronika-Italic.woff": "/v44-tier2-team-15/static/media/Robtronika-Italic.704b1e60c8cc9772cbff.woff",
+    "static/media/Robtronika-Regular.woff": "/v44-tier2-team-15/static/media/Robtronika-Regular.2b5dcdf7d9a95a906ece.woff",
+    "static/media/Robtronika-Italic.woff2": "/v44-tier2-team-15/static/media/Robtronika-Italic.901f143d9bd6f5555f97.woff2",
+    "static/media/colored_castle-min.png": "/v44-tier2-team-15/static/media/colored_castle-min.997d172a1d508fd11e0a.png",
+    "static/media/Robtronika-Regular.woff2": "/v44-tier2-team-15/static/media/Robtronika-Regular.538180e8e93fe39211de.woff2",
     "index.html": "/v44-tier2-team-15/index.html",
-    "main.38b09629.css.map": "/v44-tier2-team-15/static/css/main.38b09629.css.map",
-    "main.9879c698.js.map": "/v44-tier2-team-15/static/js/main.9879c698.js.map"
+    "main.17654e45.css.map": "/v44-tier2-team-15/static/css/main.17654e45.css.map",
+    "main.626a16b5.js.map": "/v44-tier2-team-15/static/js/main.626a16b5.js.map",
+    "979.ebd63d18.chunk.js.map": "/v44-tier2-team-15/static/js/979.ebd63d18.chunk.js.map",
+    "423.d18235fd.chunk.js.map": "/v44-tier2-team-15/static/js/423.d18235fd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.38b09629.css",
-    "static/js/main.9879c698.js"
+    "static/css/main.17654e45.css",
+    "static/js/main.626a16b5.js"
   ]
 }
