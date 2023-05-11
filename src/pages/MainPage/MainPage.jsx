@@ -1,13 +1,16 @@
+import GameName from 'components/GameName/GameName';
 import MainContainer from 'components/MainContainer/MainContainer';
-import { Link } from 'react-router-dom';
+
+import { StyledText, StyledLink } from './MainPage.styled';
 const MainPage = () => {
   return (
     <MainContainer>
-      <h1>Logic Warriors</h1>
-      <p>
-        Welcome to Logic Warriors! Click <Link to={'/game'}>GAME</Link> to
-        battle!
-      </p>
+      <GameName />
+      <StyledText>
+        Welcome to Logic Warriors!
+        <br />
+        Click on the <StyledLink to={'/game'}>GAME</StyledLink> to battle!
+      </StyledText>
     </MainContainer>
   );
 };

@@ -1,15 +1,17 @@
 import Arena from 'components/Arena/Arena';
+import GameName from 'components/GameName/GameName';
 import GamePanel from 'components/GamePanel/GamePanel';
 import MainContainer from 'components/MainContainer/MainContainer';
+import { StyledWrapp } from './GamePage.styled';
 
 const GamePage = () => {
   return (
     <MainContainer>
-      <h1>Hello it's game page Robot</h1>
-      <div style={{ display: 'flex' }}>
+      <GameName />
+      <StyledWrapp>
         <GamePanel />
         <Arena />
-      </div>
+      </StyledWrapp>
     </MainContainer>
   );
 };

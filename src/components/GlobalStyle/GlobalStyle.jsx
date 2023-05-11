@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size:  ${p => p.theme.fontSizes.s};
     font-weight: ${p => p.theme.fontWeights.normal};
     line-height: ${p => p.theme.lineHeights.content};
-    color: ${p => p.theme.colors.darkBrown};
+  color: ${p => p.theme.colors.medGreen};
     background-color: ${p => p.theme.colors.sandy};
     background-image: url(${bg});
     background-repeat: repeat;
