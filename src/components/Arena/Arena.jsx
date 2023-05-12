@@ -1,4 +1,4 @@
-import { ArenaWrapp } from './Arena.styled';
+import { ArenaWrapp, Game } from './Arena.styled';
 import React, { useEffect } from 'react';
 import Phaser from 'phaser';
 import SceneOne from 'components/Scenes/SceneOne';
@@ -8,13 +8,13 @@ const Arena = () => {
   useEffect(() => {
     const config = {
       type: Phaser.AUTO,
-      width: 800,
-      height: 600,
+      width: 400,
+      height: 400,
+      scene: SceneOne,
     }; 
 
 
     const game = new Phaser.Game(config);
-    game.scene.add('sc_one', SceneOne, true);
 
 
     return () => {
@@ -22,8 +22,14 @@ const Arena = () => {
     };
   }, []);
 
-  return <ArenaWrapp>Arena</ArenaWrapp>;
-  // return <div id="game-container" />;
+  return (
+    <ArenaWrapp>
+      Arena
+      <Game className='gamecanvas' id="game-container" />
+    </ArenaWrapp>
+  );
+
+
 };
 
 export default Arena;
