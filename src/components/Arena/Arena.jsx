@@ -11,11 +11,13 @@ const Arena = () => {
       width: 400,
       height: 400,
       scene: SceneOne,
-      physics: {
-        default: 'arcade',
-        arcade: {},
-        debug: true,
-      },
+      // physics: {
+      //   default: 'arcade',
+      //   arcade: {
+      //     gravity: 0,
+      //   },
+      //   debug: true,
+      // },
     }; 
 
 
