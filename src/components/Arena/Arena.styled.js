@@ -6,7 +6,7 @@ export const ArenaWrapp = styled.div`
 `;
 
 export const Game = styled.div`
-  width:80%;
-  height:400px;
+  width:500px;
+  height:535px;
   position: absolute;
 `;
