@@ -49,25 +49,22 @@ class SceneOne extends Phaser.Scene {
   update() {
     // Game update logic
     if (this.collided) {
-      this.pauseVelocities();
+      this.pauseScene();
       this.collided = false;
     }
   }
 
   // helper method definitions
-  pauseVelocities = () => {
-    // Pause the velocities of the objects
-    // this.ship1.body.setVelocity(0, 0);
-    // this.ship2.body.setVelocity(0, 0);
+  pauseScene = () => {
     this.physics.world.pause();
 
     // Resume velocities after 1 second
     setTimeout(() => {
-      this.resumeVelocities();
+      this.resumeScene();
     }, 1000);
   };
 
-  resumeVelocities = () => {
+  resumeScene = () => {
     // Resume the velocities of the objects
     this.physics.world.resume();
   };
