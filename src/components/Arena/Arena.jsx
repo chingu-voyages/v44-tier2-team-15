@@ -8,9 +8,10 @@ const Arena = () => {
   useEffect(() => {
     const config = {
       type: Phaser.AUTO,
-      width: 400,
-      height: 400,
+      width: 500,
+      height: 535,
       scene: SceneOne,
+      parent: "game-container",
       // physics: {
       //   default: 'arcade',
       //   arcade: {
@@ -18,6 +19,9 @@ const Arena = () => {
       //   },
       //   debug: true,
       // },
+
+
+      
     }; 
 
 
@@ -31,7 +35,6 @@ const Arena = () => {
 
   return (
     <ArenaWrapp>
-      Arena
       <Game className='gamecanvas' id="game-container" />
     </ArenaWrapp>
   );
