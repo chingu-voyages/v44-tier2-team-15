@@ -12,13 +12,13 @@ const Arena = () => {
       height: 535,
       scene: SceneOne,
       parent: "game-container",
-      // physics: {
-      //   default: 'arcade',
-      //   arcade: {
-      //     gravity: 0,
-      //   },
-      //   debug: true,
-      // },
+      physics: {
+        default: 'arcade',
+        arcade: {
+          gravity: 0,
+        },
+        debug: true,
+      },
 
 
       
@@ -38,7 +38,6 @@ const Arena = () => {
       <Game className='gamecanvas' id="game-container" />
     </ArenaWrapp>
   );
-
 
 };
 
