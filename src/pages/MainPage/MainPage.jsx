@@ -9,7 +9,7 @@ const MainPage = () => {
       <StyledText>
         Welcome to Logic Warriors!
         <br />
-        Click on the <StyledLink to={'/game'}>GAME</StyledLink> to battle!
+        Click to <StyledLink to={'/game'}>BATTLE</StyledLink> !
       </StyledText>
     </MainContainer>
   );
