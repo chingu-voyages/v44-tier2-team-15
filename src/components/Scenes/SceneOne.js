@@ -29,13 +29,17 @@ class SceneOne extends Phaser.Scene {
       this.ship2 = this.physics.add.image(50,70, 'bot2').setScale(0.5);
 
       // add motion to the images
-      this.ship1.setVelocity(100, 0); // Moves the image horizontally at a speed of 100 pixels per second
+      this.ship1.setVelocity(100, 20); // Moves the image horizontally at a speed of 100 pixels per second
       this.ship1.setBounce(1, 1);
       this.ship1.setCollideWorldBounds(true);
 
       this.ship2.setVelocity(100, 100); // Moves the image horizontally at a speed of 100 pixels per second
       this.ship2.setBounce(1, 1);
       this.ship2.setCollideWorldBounds(true);
+
+      // add collision between bots
+      this.physics.add.collider(this.ship1, this.ship2)
+
 
 
     }
