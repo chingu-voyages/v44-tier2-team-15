@@ -7,7 +7,7 @@ class SceneOne extends Phaser.Scene {
     this.collided = false;
 
     // the robots array declared to simplify adding collison between them.
-    this.botsArray = [];
+    this.bots = [];
   }
 
   preload() {
@@ -19,7 +19,6 @@ class SceneOne extends Phaser.Scene {
     this.ship2 = this.load.image('bot2', 'images/bot_2.png');
     this.ship3 = this.load.image('bot3', 'images/bot_3.png');
     this.ship4 = this.load.image('bot4', 'images/bot_4.png');
-    this.botsArray = [this.ship1, this.ship2, this.ship3, this.ship4]
   }
 
   // Game logic
@@ -59,13 +58,23 @@ class SceneOne extends Phaser.Scene {
     this.ship4.booleanValue = 0;
     this.ship4.operator = '&';
 
-    // add collision between bots
-    this.physics.add.collider(this.ship1, this.ship2, () => {
-      console.log('collision');
-      this.collided = true;
-    });
+    this.bots = [this.ship1, this.ship2, this.ship3, this.ship4]
 
-    
+
+    // add collision between bots
+    for (let i = 0; i < this.bots.length; i++) {
+      for (let j = i + 1; j < this.bots.length; j++) {
+        this.physics.add.collider(this.bots[i], this.bots[j], () => {
+          console.log("collision")
+        });
+      }
+    }
+    // this.physics.add.collider(this.ship1, this.ship2, () => {
+    //   console.log('collision');
+    //   this.collided = true;
+    // });
+
+
   }
 
   update() {
