@@ -14,11 +14,13 @@ class SceneOne extends Phaser.Scene {
     // the images below should be placed in the public directory
     this.ship1 = this.load.image('bot1', 'images/bot_1.png');
     this.ship2 = this.load.image('bot2', 'images/bot_2.png');
+    this.ship1 = this.load.image('bot1', 'images/bot_1.png');
+    this.ship2 = this.load.image('bot2', 'images/bot_2.png');
   }
 
   // Game logic
   create() {
-    // set up the game world
+    // Enable physics on the arena
     this.physics.world.enable(this);
 
     // add images to the scene
@@ -62,6 +64,8 @@ class SceneOne extends Phaser.Scene {
     setTimeout(() => {
       this.resumeScene();
     }, 1000);
+
+    this.ship1.setVisible(false);
   };
 
   resumeScene = () => {
