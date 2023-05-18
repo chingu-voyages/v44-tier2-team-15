@@ -69,11 +69,7 @@ class SceneOne extends Phaser.Scene {
         });
       }
     }
-    // this.physics.add.collider(this.ship1, this.ship2, () => {
-    //   console.log('collision');
-    //   this.collided = true;
-    // });
-
+    
 
   }
 
