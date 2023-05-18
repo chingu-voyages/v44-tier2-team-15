@@ -17,47 +17,40 @@ class SceneOne extends Phaser.Scene {
         location: {x:100, y:50},
       },
 
-      // {
-      //   name:'megatron',
-      //   image:'images/bot_2.png',
-      //   speed: [70,100],
-      //   operand: '||',
-      //   value: 0
-      // },
+      {
+        name:'megatron',
+        image:'images/bot_2.png',
+        speed: [70,100],
+        operand: '||',
+        value: 0,
+        location: {x:400, y:100}
+      },
 
-      // {
-      //   name:'cyclon',
-      //   image:'images/bot_3.png',
-      //   speed: [50,120],
-      //   operand: 'xor',
-      //   value: 0
-      // },
+      {
+        name:'cyclon',
+        image:'images/bot_3.png',
+        speed: [50,120],
+        operand: 'xor',
+        value: 0,
+        location: {x:100, y:500}
 
-      // {
-      //   name:'pylon',
-      //   image:'images/bot_4.png',
-      //   speed: [80,30],
-      //   operand: '&',
-      //   value: 1
-      // }
+      },
+
+      {
+        name:'pylon',
+        image:'images/bot_4.png',
+        speed: [80,30],
+        operand: '&',
+        value: 1,
+        location: {x:200, y:300}
+      }
 
     ];
   }
 
   preload() {
-    // load background image
     this.load.image('game_bg', Game_background);
-    // the images below should be placed in the public directory
-
-    this.robotData.forEach(robotObject => this.loadImage(robotObject));
-
-    // this.ship1 = this.load.image('bot1', 'images/bot_1.png');
-    // this.ship2 = this.load.image('bot2', 'images/bot_2.png');
-    // this.ship3 = this.load.image('bot3', 'images/bot_3.png');
-    // this.ship4 = this.load.image('bot4', 'images/bot_4.png');
-    // this.addImegeToScene(this.ship1);
-
-    
+    this.robotData.forEach(robotObject => this.loadImage(robotObject)); 
   }
 
   // Game logic
