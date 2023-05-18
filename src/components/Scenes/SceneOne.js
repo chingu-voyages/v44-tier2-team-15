@@ -54,51 +54,16 @@ class SceneOne extends Phaser.Scene {
   }
 
   create() {  
-    
     // Enable physics on the arena
     this.physics.world.enable(this);
-
     // add images to the scene
     this.add.image(0, 0, 'game_bg');
+    // add the robots to the scene
     this.robotData.forEach(robotObject =>  this.createBots(robotObject));
-
-    //this.ship1 = this.physics.add.image(500, 120, 'bot1').setScale(0.5);
-    // this.ship2 = this.physics.add.image(100, 70, 'bot2').setScale(0.5);
-    // this.ship3 = this.physics.add.image(150, 500, 'bot3').setScale(0.5);
-    // this.ship4 = this.physics.add.image(300, 200, 'bot4').setScale(0.5);
-
+    //add collision between bots
+    this.addCollisionBtnBots();
     // add motion to the images
     this.bots.forEach((bot, index) => this.addBehaviour(bot, index));
-    // this.ship1.setVelocity(100, 20); // Moves the image horizontally at a speed of 100 pixels per second
-    // this.ship1.setBounce(1, 1);
-    // this.ship1.setCollideWorldBounds(true);
-    // this.ship1.collided = false;
-    // this.ship1.booleanValue = 1;
-    // this.ship1.operator = '&';
-
-    // this.ship2.setVelocity(100, 100); // Moves the image horizontally at a speed of 100 pixels per second
-    // this.ship2.setBounce(1, 1);
-    // this.ship2.setCollideWorldBounds(true);
-    // this.ship2.collided = false;
-    // this.ship2.booleanValue = 0;
-    // this.ship2.operator = '&';
-
-    // this.ship3.setVelocity(50, 120); // Moves the image horizontally at a speed of 100 pixels per second
-    // this.ship3.setBounce(1,1);
-    // this.ship3.setCollideWorldBounds(true);
-    // this.ship3.collided = false;
-    // this.ship3.booleanValue = 1;
-    // this.ship3.operator = '&';
-
-    // this.ship4.setVelocity(70, 120); // Moves the image horizontally at a speed of 100 pixels per second
-    // this.ship4.setBounce(1, 1);
-    // this.ship4.setCollideWorldBounds(true);
-    // this.ship4.collided = false;
-    // this.ship4.booleanValue = 0;
-    // this.ship4.operator = '&';
-
-    this.bots = [this.ship1] //  this.ship2, this.ship3, this.ship4
-
     // add collision between bots
     // for (let i = 0; i < this.bots.length; i++) {
     //   for (let j = i + 1; j < this.bots.length; j++) {
@@ -207,6 +172,13 @@ class SceneOne extends Phaser.Scene {
     bot.collided = false;
   };
 
+  addCollisionBtnBots = () => {
+    for (let i = 0; i < this.bots.length; i++) {
+      for (let j = i + 1; j < this.bots.length; j++) {
+        this.physics.add.collider(this.bots[i], this.bots[j], () => {this.bots[i].destroy()});
+      }
+    };
+  };
   
 
 }
