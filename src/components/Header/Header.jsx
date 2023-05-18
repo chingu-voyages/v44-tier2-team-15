@@ -1,12 +1,54 @@
-import MainContainer from 'components/MainContainer';
+import LogoSvg from 'images/logo/LogoSvg';
+import { NavLink } from 'react-router-dom';
 import { HeaderStyled } from './Header.styled';
+import classes from './Header.module.css';
+
+
+
 
 const Header = () => {
+
+
   return (
     <HeaderStyled>
-      <MainContainer>
-        <h2>Header</h2>
-      </MainContainer>
+      <LogoSvg></LogoSvg>
+      <ul className={classes.list}>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+            to="game"
+            end
+          >
+            Game
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+            end
+            to="about"
+          >
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+            end
+            to="contact"
+          >
+            Contact
+          </NavLink>
+        </li>
+      </ul>
+      
+      
     </HeaderStyled>
   );
 };
