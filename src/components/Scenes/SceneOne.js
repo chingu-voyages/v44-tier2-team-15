@@ -13,7 +13,8 @@ class SceneOne extends Phaser.Scene {
         image:'images/bot_1.png',
         speed: [100,70],
         operand: '&',
-        value: 1
+        value: 1,
+        location: {x:100, y:50},
       },
 
       // {
@@ -48,7 +49,7 @@ class SceneOne extends Phaser.Scene {
     this.load.image('game_bg', Game_background);
     // the images below should be placed in the public directory
 
-    this.robotData.forEach(robot => this.loadImage(robot));
+    this.robotData.forEach(robotObject => this.loadImage(robotObject));
 
     // this.ship1 = this.load.image('bot1', 'images/bot_1.png');
     // this.ship2 = this.load.image('bot2', 'images/bot_2.png');
@@ -67,18 +68,20 @@ class SceneOne extends Phaser.Scene {
 
     // add images to the scene
     this.add.image(0, 0, 'game_bg');
-    this.ship1 = this.physics.add.image(500, 120, 'bot1').setScale(0.5);
+    this.robotData.forEach(robotObject =>  this.createBots(robotObject));
+
+    //this.ship1 = this.physics.add.image(500, 120, 'bot1').setScale(0.5);
     // this.ship2 = this.physics.add.image(100, 70, 'bot2').setScale(0.5);
     // this.ship3 = this.physics.add.image(150, 500, 'bot3').setScale(0.5);
     // this.ship4 = this.physics.add.image(300, 200, 'bot4').setScale(0.5);
 
     // add motion to the images
-    this.ship1.setVelocity(100, 20); // Moves the image horizontally at a speed of 100 pixels per second
-    this.ship1.setBounce(1, 1);
-    this.ship1.setCollideWorldBounds(true);
-    this.ship1.collided = false;
-    this.ship1.booleanValue = 1;
-    this.ship1.operator = '&';
+    // this.ship1.setVelocity(100, 20); // Moves the image horizontally at a speed of 100 pixels per second
+    // this.ship1.setBounce(1, 1);
+    // this.ship1.setCollideWorldBounds(true);
+    // this.ship1.collided = false;
+    // this.ship1.booleanValue = 1;
+    // this.ship1.operator = '&';
 
     // this.ship2.setVelocity(100, 100); // Moves the image horizontally at a speed of 100 pixels per second
     // this.ship2.setBounce(1, 1);
@@ -187,12 +190,15 @@ class SceneOne extends Phaser.Scene {
   //   bot.body.resume();
   // };
 
-  loadImage = (robot) => {
-    this.bot = this.load.image(robot.name, robot.image);
-    this.bots.push(this.bot);
+  loadImage = (robotObject) => {
+    this.load.image(robotObject.name, robotObject.image);
+    // this.bots.push(this.bot);
   }
 
-  
+  createBots = (robotObject) => {
+    this.physics.add.image(robotObject.location.x, robotObject.location.y, robotObject.name).setScale(0.5);
+  }
+
   
 
 }
