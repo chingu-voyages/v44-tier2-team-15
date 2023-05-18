@@ -4,99 +4,197 @@ import Game_background from '../../images/game/bg_main.png';
 class SceneOne extends Phaser.Scene {
   constructor() {
     super({ key: 'sc_one' });
-    this.collided = false;
-
-    // the robots array declared to simplify adding collison between them.
     this.bots = [];
+
+    // this is user input comming from React
+    this.robotData = [
+      {
+        name:'xylon',
+        image:'images/bot_1.png',
+        speed: [100,70],
+        operand: '&',
+        value: 1
+      },
+
+      // {
+      //   name:'megatron',
+      //   image:'images/bot_2.png',
+      //   speed: [70,100],
+      //   operand: '||',
+      //   value: 0
+      // },
+
+      // {
+      //   name:'cyclon',
+      //   image:'images/bot_3.png',
+      //   speed: [50,120],
+      //   operand: 'xor',
+      //   value: 0
+      // },
+
+      // {
+      //   name:'pylon',
+      //   image:'images/bot_4.png',
+      //   speed: [80,30],
+      //   operand: '&',
+      //   value: 1
+      // }
+
+    ];
   }
 
   preload() {
     // load background image
     this.load.image('game_bg', Game_background);
-
     // the images below should be placed in the public directory
-    this.ship1 = this.load.image('bot1', 'images/bot_1.png');
-    this.ship2 = this.load.image('bot2', 'images/bot_2.png');
-    this.ship3 = this.load.image('bot3', 'images/bot_3.png');
-    this.ship4 = this.load.image('bot4', 'images/bot_4.png');
+
+    this.robotData.forEach(robot => this.loadImage(robot));
+
+    // this.ship1 = this.load.image('bot1', 'images/bot_1.png');
+    // this.ship2 = this.load.image('bot2', 'images/bot_2.png');
+    // this.ship3 = this.load.image('bot3', 'images/bot_3.png');
+    // this.ship4 = this.load.image('bot4', 'images/bot_4.png');
+    // this.addImegeToScene(this.ship1);
+
+    
   }
 
   // Game logic
-  create() {
+  create() {  
+    
     // Enable physics on the arena
     this.physics.world.enable(this);
 
     // add images to the scene
     this.add.image(0, 0, 'game_bg');
     this.ship1 = this.physics.add.image(500, 120, 'bot1').setScale(0.5);
-    this.ship2 = this.physics.add.image(100, 70, 'bot2').setScale(0.5);
-    this.ship3 = this.physics.add.image(150, 500, 'bot3').setScale(0.5);
-    this.ship4 = this.physics.add.image(300, 200, 'bot4').setScale(0.5);
+    // this.ship2 = this.physics.add.image(100, 70, 'bot2').setScale(0.5);
+    // this.ship3 = this.physics.add.image(150, 500, 'bot3').setScale(0.5);
+    // this.ship4 = this.physics.add.image(300, 200, 'bot4').setScale(0.5);
 
     // add motion to the images
     this.ship1.setVelocity(100, 20); // Moves the image horizontally at a speed of 100 pixels per second
     this.ship1.setBounce(1, 1);
     this.ship1.setCollideWorldBounds(true);
+    this.ship1.collided = false;
     this.ship1.booleanValue = 1;
     this.ship1.operator = '&';
 
-    this.ship2.setVelocity(100, 100); // Moves the image horizontally at a speed of 100 pixels per second
-    this.ship2.setBounce(1, 1);
-    this.ship2.setCollideWorldBounds(true);
-    this.ship2.booleanValue = 0;
-    this.ship2.operator = '&';
+    // this.ship2.setVelocity(100, 100); // Moves the image horizontally at a speed of 100 pixels per second
+    // this.ship2.setBounce(1, 1);
+    // this.ship2.setCollideWorldBounds(true);
+    // this.ship2.collided = false;
+    // this.ship2.booleanValue = 0;
+    // this.ship2.operator = '&';
 
-    this.ship3.setVelocity(50, 120); // Moves the image horizontally at a speed of 100 pixels per second
-    this.ship3.setBounce(1, 1);
-    this.ship3.setCollideWorldBounds(true);
-    this.ship3.booleanValue = 1;
-    this.ship3.operator = '&';
+    // this.ship3.setVelocity(50, 120); // Moves the image horizontally at a speed of 100 pixels per second
+    // this.ship3.setBounce(1,1);
+    // this.ship3.setCollideWorldBounds(true);
+    // this.ship3.collided = false;
+    // this.ship3.booleanValue = 1;
+    // this.ship3.operator = '&';
 
-    this.ship4.setVelocity(70, 120); // Moves the image horizontally at a speed of 100 pixels per second
-    this.ship4.setBounce(1, 1);
-    this.ship4.setCollideWorldBounds(true);
-    this.ship4.booleanValue = 0;
-    this.ship4.operator = '&';
+    // this.ship4.setVelocity(70, 120); // Moves the image horizontally at a speed of 100 pixels per second
+    // this.ship4.setBounce(1, 1);
+    // this.ship4.setCollideWorldBounds(true);
+    // this.ship4.collided = false;
+    // this.ship4.booleanValue = 0;
+    // this.ship4.operator = '&';
 
-    this.bots = [this.ship1, this.ship2, this.ship3, this.ship4]
-
+    this.bots = [this.ship1] //  this.ship2, this.ship3, this.ship4
 
     // add collision between bots
-    for (let i = 0; i < this.bots.length; i++) {
-      for (let j = i + 1; j < this.bots.length; j++) {
-        this.physics.add.collider(this.bots[i], this.bots[j], () => {
-          console.log("collision")
-        });
-      }
-    }
+    // for (let i = 0; i < this.bots.length; i++) {
+    //   for (let j = i + 1; j < this.bots.length; j++) {
+    //     this.physics.add.collider(this.bots[i], this.bots[j], () => {
+    //       // get the velocity of the wiiing body before stopping
+
+    //       this.bots[i].destroy();
+    //       this.bots[j].setVelocity(50,100)
+    //       // console.log(this.bots[j].body.velocity.x, this.bots[j].body.velocity.y);
+
+    //       // velocity before collison
+    //       // console.log("Before collision")
+    //       // console.log(this.bots[j].body.velocity.x, this.bots[j].body.velocity.y);
+
+
+    //       // this.pauseMotion(this.bots[i], this.bots[j]);
+    //       // this.bots[i].body.stop();
+    //       // this.bots[j].body.stop();
+    //       // this.bots[i].setVelocity(0,0);
+    //       // this.bots[j].setVelocity(0,0);
+
+
+    //       // remove the bot from the game
+    //       //this.bots[i].destroy();
+
+    //       // this.bots[j].body.setBounce();
+          
+    //       // resume the motion of the winning bot
+    //       // console.log(this.bots[j].velocity)
+    //       // console.log("Just after collision")
+    //       // console.log(this.bots[j].body.velocity.x, this.bots[j].body.velocity.y);
+    //       // console.log("intial velocity")
+    //       // console.log(x, y);
+    //       // this.bots[j].setVelocityX(x);
+    //       // this.bots[j].setVelocityY(y);
+
+    //       // console.log("After resumption")
+    //       // console.log(this.bots[j].body.velocity.x, this.bots[j].body.velocity.y);
+
+    //       // console.log(this.bots[j].body)
+
+
+    //       // mark the bots as collided bots
+    //       // this.bots[i].collided = true
+    //       // this.bots[j].collided = true
+
+    //       // pause collided bots breifly
+
+    //       // deteremine loosing 
+
+    //       // make loosing bot disapper
+    //     });
+    //   }
+    // }
     
+
 
   }
 
   update() {
     // Game update logic
-    if (this.collided) {
-      this.pauseScene();
-      this.collided = false;
-    }
+    // if (this.collided) {
+    //   this.pauseScene();
+    //   this.collided = false;
+    // }
   }
 
   // helper method definitions
-  pauseScene = () => {
-    this.physics.world.pause();
+  pauseMotion = (alpha, beta) => {
+    // alpha.body.stop();
+    // beta.body.stop();
 
     // Resume velocities after 1 second
-    setTimeout(() => {
-      this.resumeScene();
-    }, 1000);
+    // setTimeout(() => {
+    //   this.resumeMotion(alpha);
+    // }, 1000);
 
-    this.ship1.setVisible(false);
+    // this.ship1.setVisible(false);
   };
 
-  resumeScene = () => {
-    // Resume the velocities of the objects
-    this.physics.world.resume();
-  };
+  // resumeMotion = (bot) => {
+  //   bot.body.resume();
+  // };
+
+  loadImage = (robot) => {
+    this.bot = this.load.image(robot.name, robot.image);
+    this.bots.push(this.bot);
+  }
+
+  
+  
+
 }
 
 export default SceneOne;
