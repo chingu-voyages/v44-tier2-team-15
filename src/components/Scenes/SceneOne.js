@@ -11,7 +11,7 @@ class SceneOne extends Phaser.Scene {
       {
         name:'xylon',
         image:'images/bot_1.png',
-        speed: [100,70],
+        speed: {x: 100,y: 70},
         operand: '&',
         value: 1,
         location: {x:100, y:50},
@@ -20,7 +20,7 @@ class SceneOne extends Phaser.Scene {
       {
         name:'megatron',
         image:'images/bot_2.png',
-        speed: [70,100],
+        speed: {x: 70,y: 100},
         operand: '||',
         value: 0,
         location: {x:400, y:100}
@@ -29,7 +29,7 @@ class SceneOne extends Phaser.Scene {
       {
         name:'cyclon',
         image:'images/bot_3.png',
-        speed: [50,120],
+        speed: {x: 50, y: 120},
         operand: 'xor',
         value: 0,
         location: {x:100, y:500}
@@ -39,7 +39,7 @@ class SceneOne extends Phaser.Scene {
       {
         name:'pylon',
         image:'images/bot_4.png',
-        speed: [80,30],
+        speed: {x: 80, y: 30},
         operand: '&',
         value: 1,
         location: {x:200, y:300}
@@ -53,7 +53,6 @@ class SceneOne extends Phaser.Scene {
     this.robotData.forEach(robotObject => this.loadImage(robotObject)); 
   }
 
-  // Game logic
   create() {  
     
     // Enable physics on the arena
@@ -69,6 +68,7 @@ class SceneOne extends Phaser.Scene {
     // this.ship4 = this.physics.add.image(300, 200, 'bot4').setScale(0.5);
 
     // add motion to the images
+    this.bots.forEach((bot, index) => this.addBehaviour(bot, index));
     // this.ship1.setVelocity(100, 20); // Moves the image horizontally at a speed of 100 pixels per second
     // this.ship1.setBounce(1, 1);
     // this.ship1.setCollideWorldBounds(true);
@@ -185,12 +185,27 @@ class SceneOne extends Phaser.Scene {
 
   loadImage = (robotObject) => {
     this.load.image(robotObject.name, robotObject.image);
-    // this.bots.push(this.bot);
-  }
+  };
 
   createBots = (robotObject) => {
-    this.physics.add.image(robotObject.location.x, robotObject.location.y, robotObject.name).setScale(0.5);
-  }
+    const bot = this.physics.add.image(
+      robotObject.location.x,
+      robotObject.location.y,
+      robotObject.name
+    ).setScale(0.5);
+
+    this.bots.push(bot);
+  };
+
+  addBehaviour = (bot, index) => {
+    const data = this.robotData[index];
+    bot.setVelocity(data.speed.x, data.speed.y); // Moves the image horizontally at a speed of 100 pixels per second
+    bot.booleanValue = data.value;
+    bot.operator = data.operand
+    bot.setBounce(1, 1);
+    bot.setCollideWorldBounds(true);
+    bot.collided = false;
+  };
 
   
 
