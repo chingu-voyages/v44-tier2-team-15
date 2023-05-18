@@ -6,10 +6,17 @@ export const StyledFotter = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  outline: auto;
+  background: linear-gradient(180deg, rgba(31,26,36,1) 0%, rgba(31,26,36,0.8703627558479532) 100%);
+
+  border-radius: 14% 14% 0 0;
+  color: white;
+  font-size: 0.5rem;
+
+  
 `;
 export const StyledText = styled.p`
   margin-right: 5px;
+  font-size: 0.5rem;
   @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
     margin-right: 10px;
   }

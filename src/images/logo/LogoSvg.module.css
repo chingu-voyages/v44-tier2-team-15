@@ -1,0 +1,21 @@
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #B8D0A6 solid;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.55s ease;
+}
+
+.logo:hover {
+    border: #1f1a24 2px solid;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    
+}
+
