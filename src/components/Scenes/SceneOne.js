@@ -64,73 +64,10 @@ class SceneOne extends Phaser.Scene {
     this.addCollisionBtnBots();
     // add motion to the images
     this.bots.forEach((bot, index) => this.addBehaviour(bot, index));
-    // add collision between bots
-    // for (let i = 0; i < this.bots.length; i++) {
-    //   for (let j = i + 1; j < this.bots.length; j++) {
-    //     this.physics.add.collider(this.bots[i], this.bots[j], () => {
-    //       // get the velocity of the wiiing body before stopping
-
-    //       this.bots[i].destroy();
-    //       this.bots[j].setVelocity(50,100)
-    //       // console.log(this.bots[j].body.velocity.x, this.bots[j].body.velocity.y);
-
-    //       // velocity before collison
-    //       // console.log("Before collision")
-    //       // console.log(this.bots[j].body.velocity.x, this.bots[j].body.velocity.y);
-
-
-    //       // this.pauseMotion(this.bots[i], this.bots[j]);
-    //       // this.bots[i].body.stop();
-    //       // this.bots[j].body.stop();
-    //       // this.bots[i].setVelocity(0,0);
-    //       // this.bots[j].setVelocity(0,0);
-
-
-    //       // remove the bot from the game
-    //       //this.bots[i].destroy();
-
-    //       // this.bots[j].body.setBounce();
-          
-    //       // resume the motion of the winning bot
-    //       // console.log(this.bots[j].velocity)
-    //       // console.log("Just after collision")
-    //       // console.log(this.bots[j].body.velocity.x, this.bots[j].body.velocity.y);
-    //       // console.log("intial velocity")
-    //       // console.log(x, y);
-    //       // this.bots[j].setVelocityX(x);
-    //       // this.bots[j].setVelocityY(y);
-
-    //       // console.log("After resumption")
-    //       // console.log(this.bots[j].body.velocity.x, this.bots[j].body.velocity.y);
-
-    //       // console.log(this.bots[j].body)
-
-
-    //       // mark the bots as collided bots
-    //       // this.bots[i].collided = true
-    //       // this.bots[j].collided = true
-
-    //       // pause collided bots breifly
-
-    //       // deteremine loosing 
-
-    //       // make loosing bot disapper
-    //     });
-    //   }
-    // }
-    
-
-
+  
   }
 
-  update() {
-    // Game update logic
-    // if (this.collided) {
-    //   this.pauseScene();
-    //   this.collided = false;
-    // }
-  }
-
+ 
   // helper method definitions
   pauseMotion = (alpha, beta) => {
     // alpha.body.stop();
@@ -165,7 +102,7 @@ class SceneOne extends Phaser.Scene {
   addBehaviour = (bot, index) => {
     const data = this.robotData[index];
     bot.setVelocity(data.speed.x, data.speed.y); // Moves the image horizontally at a speed of 100 pixels per second
-    bot.booleanValue = data.value;
+    bot.value = data.value;
     bot.operator = data.operand
     bot.setBounce(1, 1);
     bot.setCollideWorldBounds(true);
@@ -179,6 +116,12 @@ class SceneOne extends Phaser.Scene {
       }
     };
   };
+
+  determineWinner = (botX, botY) => {
+    
+  }
+
+ 
   
 
 }
