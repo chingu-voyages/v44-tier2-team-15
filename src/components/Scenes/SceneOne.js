@@ -12,7 +12,7 @@ class SceneOne extends Phaser.Scene {
         name:'xylon',
         image:'images/bot_1.png',
         speed: {x: 100,y: 70},
-        operator: '&',
+        operator: 'AND',
         value: 1,
         location: {x:100, y:50},
       },
@@ -21,7 +21,7 @@ class SceneOne extends Phaser.Scene {
         name:'megatron',
         image:'images/bot_2.png',
         speed: {x: 70,y: 100},
-        operator: '||',
+        operator: 'OR',
         value: 0,
         location: {x:400, y:100}
       },
@@ -30,7 +30,7 @@ class SceneOne extends Phaser.Scene {
         name:'cyclon',
         image:'images/bot_3.png',
         speed: {x: 50, y: 120},
-        operator: 'xor',
+        operator: 'XOR',
         value: 0,
         location: {x:100, y:500}
 
@@ -40,7 +40,7 @@ class SceneOne extends Phaser.Scene {
         name:'pylon',
         image:'images/bot_4.png',
         speed: {x: 80, y: 30},
-        operator: '&',
+        operator: 'AND',
         value: 1,
         location: {x:200, y:300}
       }
@@ -56,7 +56,7 @@ class SceneOne extends Phaser.Scene {
   create() {  
     // Enable physics on the arena
     this.physics.world.enable(this);
-    // add images to the scene
+    // add background to the scene
     this.add.image(0, 0, 'game_bg');
     // add the robots to the scene
     this.robotData.forEach(robotObject =>  this.createBots(robotObject));
@@ -66,20 +66,6 @@ class SceneOne extends Phaser.Scene {
     this.bots.forEach((bot, index) => this.addBehaviour(bot, index));
   
   }
-
- 
-  // helper method definitions
-  pauseMotion = (alpha, beta) => {
-    // alpha.body.stop();
-    // beta.body.stop();
-
-    // Resume velocities after 1 second
-    // setTimeout(() => {
-    //   this.resumeMotion(alpha);
-    // }, 1000);
-
-    // this.ship1.setVisible(false);
-  };
 
   // resumeMotion = (bot) => {
   //   bot.body.resume();
@@ -135,36 +121,44 @@ class SceneOne extends Phaser.Scene {
     }else if(bot.operator === 'XNOR'){
       result = !(bot.value ^ oponentValue)
     };
+    console.log(result)
     return result;
   }
 
-  determineWinner = (botX, botY) => {
-    // const botXResult = true;
-    // const botYResult = true;
+  destroyLoser = (botX, botY) => {
+    const botXResult = this.logicWar(botX, botY.value);
+    const botYResult = this.logicWar(botY, botX.value);
+    let winner = true; //both bots are winners initially
 
-    // if(botX.operator === '&'){
-    //   botXResult = botX.value & botY.value;
-    // }
-
-    // console.log(botX.operator, botX.value)
-    
-    return botX;
-  }
-
-  destroyLoser = (looser) => {
-    looser.destroy();
+    if(botYResult && botXResult) {
+      //its a tie, no winner, both bots survive
+      winner = true;
+    }else if(!(botYResult || botXResult)){ 
+      //its a loss, both lose
+      botX.destroy();
+      botY.destroy();
+      winner = null;
+    }else if(botYResult){ // botY wins
+      botX.destroy();
+      winner = botY;
+    }else if(botXResult){ // botX wins
+      botY.destroy();
+      winner = botX;
+    }
+    return winner;
   }
 
   momentaryFreeze = (botX, botY) => {
+    // freeze the colliding bots
     botX.body.stop();
     botY.body.stop();
 
-    const winner = this.determineWinner(botX, botY);
-    this.destroyLoser(botX);
-
-    // setTimeout(() => {
-    //   this.resumeMotion(winner);
-    // }, 1000);
+    setTimeout(() => {
+      // destroy the losing bot
+      const winner = this.destroyLoser(botX, botY);
+      // resume motion for the winning bot
+      this.resumeMotion(winner);
+    }, 1000);
 
   }
 
