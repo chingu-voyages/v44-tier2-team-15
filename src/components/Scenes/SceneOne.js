@@ -12,7 +12,7 @@ class SceneOne extends Phaser.Scene {
         name:'xylon',
         image:'images/bot_1.png',
         speed: {x: 100,y: 70},
-        operand: '&',
+        operator: '&',
         value: 1,
         location: {x:100, y:50},
       },
@@ -21,7 +21,7 @@ class SceneOne extends Phaser.Scene {
         name:'megatron',
         image:'images/bot_2.png',
         speed: {x: 70,y: 100},
-        operand: '||',
+        operator: '||',
         value: 0,
         location: {x:400, y:100}
       },
@@ -30,7 +30,7 @@ class SceneOne extends Phaser.Scene {
         name:'cyclon',
         image:'images/bot_3.png',
         speed: {x: 50, y: 120},
-        operand: 'xor',
+        operator: 'xor',
         value: 0,
         location: {x:100, y:500}
 
@@ -40,7 +40,7 @@ class SceneOne extends Phaser.Scene {
         name:'pylon',
         image:'images/bot_4.png',
         speed: {x: 80, y: 30},
-        operand: '&',
+        operator: '&',
         value: 1,
         location: {x:200, y:300}
       }
@@ -103,22 +103,69 @@ class SceneOne extends Phaser.Scene {
     const data = this.robotData[index];
     bot.setVelocity(data.speed.x, data.speed.y); // Moves the image horizontally at a speed of 100 pixels per second
     bot.value = data.value;
-    bot.operator = data.operand
+    bot.operator = data.operator
     bot.setBounce(1, 1);
     bot.setCollideWorldBounds(true);
-    bot.collided = false;
+    // bot.collided = false;
   };
 
   addCollisionBtnBots = () => {
     for (let i = 0; i < this.bots.length; i++) {
       for (let j = i + 1; j < this.bots.length; j++) {
-        this.physics.add.collider(this.bots[i], this.bots[j], () => {this.bots[i].destroy()});
+        this.physics.add.collider(this.bots[i], this.bots[j], () => {
+          this.momentaryFreeze(this.bots[i], this.bots[j]);
+        });
       }
     };
   };
+ 
+  logicWar = (bot, oponentValue) => {
+    // AND, OR, XOR, NAND, NOR, XNOR
+    let result = false;
+    if(bot.operator === 'AND'){
+      result = bot.value && oponentValue
+    }else if(bot.operator === 'OR'){
+      result = bot.value || oponentValue
+    }else if(bot.operator === 'NOR'){
+      result = !(bot.value || oponentValue)
+    }else if(bot.operator === 'NAND'){
+      result = !(bot.value && oponentValue)
+    }else if(bot.operator === 'NOR'){
+     result = bot.value ^ oponentValue
+    }else if(bot.operator === 'XNOR'){
+      result = !(bot.value ^ oponentValue)
+    };
+    return result;
+  }
 
   determineWinner = (botX, botY) => {
+    // const botXResult = true;
+    // const botYResult = true;
+
+    // if(botX.operator === '&'){
+    //   botXResult = botX.value & botY.value;
+    // }
+
+    // console.log(botX.operator, botX.value)
     
+    return botX;
+  }
+
+  destroyLoser = (looser) => {
+    looser.destroy();
+  }
+
+  momentaryFreeze = (botX, botY) => {
+    botX.body.stop();
+    botY.body.stop();
+
+    const winner = this.determineWinner(botX, botY);
+    this.destroyLoser(botX);
+
+    // setTimeout(() => {
+    //   this.resumeMotion(winner);
+    // }, 1000);
+
   }
 
  
