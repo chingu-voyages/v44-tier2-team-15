@@ -12,7 +12,7 @@ class SceneOne extends Phaser.Scene {
         name:'xylon',
         image:'images/bot_1.png',
         speed: {x: 100,y: 70},
-        operator: 'AND',
+        operator: 'NAND',
         value: 1,
         location: {x:100, y:50},
       },
@@ -40,7 +40,7 @@ class SceneOne extends Phaser.Scene {
         name:'pylon',
         image:'images/bot_4.png',
         speed: {x: 80, y: 30},
-        operator: 'AND',
+        operator: 'XNOR',
         value: 1,
         location: {x:200, y:300}
       }
@@ -64,12 +64,7 @@ class SceneOne extends Phaser.Scene {
     this.addCollisionBtnBots();
     // add motion to the images
     this.bots.forEach((bot, index) => this.addBehaviour(bot, index));
-  
   }
-
-  // resumeMotion = (bot) => {
-  //   bot.body.resume();
-  // };
 
   loadImage = (robotObject) => {
     this.load.image(robotObject.name, robotObject.image);
@@ -92,7 +87,7 @@ class SceneOne extends Phaser.Scene {
     bot.operator = data.operator
     bot.setBounce(1, 1);
     bot.setCollideWorldBounds(true);
-    // bot.collided = false;
+    bot.speed = [data.speed.x, data.speed.y]
   };
 
   addCollisionBtnBots = () => {
@@ -121,49 +116,46 @@ class SceneOne extends Phaser.Scene {
     }else if(bot.operator === 'XNOR'){
       result = !(bot.value ^ oponentValue)
     };
-    console.log(result)
     return result;
   }
 
   destroyLoser = (botX, botY) => {
     const botXResult = this.logicWar(botX, botY.value);
     const botYResult = this.logicWar(botY, botX.value);
-    let winner = true; //both bots are winners initially
+    let winner = []; //both bots are winners initially
 
-    if(botYResult && botXResult) {
-      //its a tie, no winner, both bots survive
-      winner = true;
-    }else if(!(botYResult || botXResult)){ 
-      //its a loss, both lose
+    if(botYResult && botXResult) {// its a tie, no winner, both bots survive
+      winner = [botX, botY];
+    }else if(!(botYResult || botXResult)){//its a loss, both lose
       botX.destroy();
       botY.destroy();
-      winner = null;
     }else if(botYResult){ // botY wins
       botX.destroy();
-      winner = botY;
+      winner = [botY];
     }else if(botXResult){ // botX wins
       botY.destroy();
-      winner = botX;
+      winner = [botX];
     }
     return winner;
   }
 
   momentaryFreeze = (botX, botY) => {
     // freeze the colliding bots
-    botX.body.stop();
-    botY.body.stop();
-
+    botX.body.setVelocity(0, 0);;
+    botY.body.setVelocity(0, 0);;
     setTimeout(() => {
       // destroy the losing bot
       const winner = this.destroyLoser(botX, botY);
       // resume motion for the winning bot
       this.resumeMotion(winner);
     }, 1000);
-
   }
 
- 
-  
+  resumeMotion = (winner) => {
+    if (winner.length) {
+      winner.forEach(bot => bot.body.setVelocity(bot.speed[0], bot.speed[1])); 
+    }
+  };
 
 }
 
