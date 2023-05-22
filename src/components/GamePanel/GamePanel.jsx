@@ -1,14 +1,27 @@
-import Leaderboard from 'components/Leaderboard/Leaderboard';
-import { PanelWrapp } from './GamePanel.styled';
+import { useState } from 'react';
 import GameControlls from 'components/GameControls/GameControls';
+import Leaderboard from 'components/Leaderboard/Leaderboard';
+import { BtnStyled, PanelWrapp } from './GamePanel.styled';
+import Modal from 'components/Modal';
 
 const GamePanel = () => {
+  const [isModalShown, setIsModalShown] = useState(false);
+
+  const toogleModal = () => {
+    setIsModalShown(prevState => !prevState);
+  };
   return (
-    <PanelWrapp>
-      <button>Open config settings</button>
-      <GameControlls />
-      <Leaderboard />
-    </PanelWrapp>
+    <>
+      <PanelWrapp>
+        <BtnStyled type="button" onClick={toogleModal}>
+          Open settings
+        </BtnStyled>
+
+        <GameControlls />
+        <Leaderboard />
+      </PanelWrapp>
+      {isModalShown && <Modal onClose={toogleModal} />}
+    </>
   );
 };
 

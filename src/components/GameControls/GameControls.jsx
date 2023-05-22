@@ -1,10 +1,23 @@
+import { useState } from 'react';
+import { ControllsWrapp, BtnStyled } from './GameControls.styled';
+
 const GameControlls = () => {
+  const [isButtleOn, setIsButtleOn] = useState(false);
+  const handleClick = () => {
+    if (!isButtleOn) {
+      setIsButtleOn(true);
+    } else {
+      setIsButtleOn(false);
+    }
+  };
+
+  const buttonText = isButtleOn ? 'Stop' : 'Battle';
   return (
-    <div>
-      GameControlls
-      <button>Battle</button>
-      <button>Battle</button>
-    </div>
+    <ControllsWrapp>
+      <BtnStyled type="button" onClick={handleClick}>
+        {buttonText}
+      </BtnStyled>
+    </ControllsWrapp>
   );
 };
 

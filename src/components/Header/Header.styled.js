@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
-
   right: 0;
   top: 0;
   z-index: 1000;
@@ -13,8 +12,6 @@ export const HeaderStyled = styled.header`
   border-bottom: 2px solid #1f1a24;
   border-radius: 13%;
   margin-bottom: 100px;
- 
-
 `;
 
 export const NavBar = styled.nav``;
