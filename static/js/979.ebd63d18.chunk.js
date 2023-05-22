@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkv44_tier2_team_15=self.webpackChunkv44_tier2_team_15||[]).push([[979],{979:function(e,r,t){t.r(r),t.d(r,{default:function(){return s}});var i=t(457),c=t(87),n=t(184),s=function(){return(0,n.jsxs)(i.Z,{children:[(0,n.jsx)("h1",{children:"Logic Warriors"}),(0,n.jsxs)("p",{children:["Welcome to Logic Warriors! Click ",(0,n.jsx)(c.rU,{to:"/game",children:"GAME"})," to battle!"]})]})}}}]);
-//# sourceMappingURL=979.ebd63d18.chunk.js.map
