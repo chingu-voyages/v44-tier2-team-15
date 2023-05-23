@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { ModalDiv, Overlay } from 'components/Modal/Modal.styled';
 import { createPortal } from 'react-dom';
+import { ModalDiv, Overlay, Title } from './Modal.styled';
+import ConfigurationForm from 'components/ConfigurationForm/ConfigurationForm';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -27,29 +28,8 @@ const Modal = ({ onClose }) => {
   return createPortal(
     <Overlay onClick={closeByBackdrop}>
       <ModalDiv>
-        <p>Choose configuration</p>
-        <input type="text" />
-        <select>
-          <option>0</option>
-          <option>1</option>
-        </select>
-        <select>
-          <option value="AND">AND</option>
-          <option value="OR">OR</option>
-          <option value="XOR">XOR</option>
-          <option value="NOT">NOT</option>
-        </select>
-        <div>
-          <input type="range" id="speed " name="speed " min="0" max="8" />
-          <label htmlFor="speed ">Volume</label>
-        </div>
-        <select>
-          <option value="North">North</option>
-          <option value="South">South</option>
-          <option value="East">East</option>
-          <option value="West">West</option>
-        </select>
-        <button type="button">Save</button>
+        <Title>Choose configuration</Title>
+        <ConfigurationForm onClose={onClose} />
       </ModalDiv>
     </Overlay>,
     modalRoot
