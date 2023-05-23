@@ -19,6 +19,14 @@ export const ModalDiv = styled.div`
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  color: ${p => p.theme.colors.superLightgray};
-  background-color: ${p => p.theme.colors.medGreen};
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  color: ${p => p.theme.colors.superDarkGreen};
+  background-color: ${p => p.theme.colors.lightGreen};
+`;
+
+export const Title = styled.h3`
+  font-size: 30px;
+  margin-bottom: ${p => p.theme.space[5]}px;
 `;

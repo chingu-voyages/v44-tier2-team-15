@@ -1,5 +1,3 @@
 import styled from 'styled-components';
 
-export const LeaderboardStyled = styled.div`
-  outline: auto;
-`;
+export const LeaderboardStyled = styled.div``;
