@@ -5,7 +5,6 @@ export const PanelWrapp = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  outline: auto;
 `;
 
 export const BtnStyled = styled.button`

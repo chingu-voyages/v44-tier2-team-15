@@ -11,7 +11,7 @@ export const HeaderStyled = styled.header`
   padding: 33px 9%;
   border-bottom: 2px solid #1f1a24;
   border-radius: 13%;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 `;
 
 export const NavBar = styled.nav``;
