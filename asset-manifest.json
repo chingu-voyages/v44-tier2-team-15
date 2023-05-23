@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/v44-tier2-team-15/static/css/main.34e70326.css",
-    "main.js": "/v44-tier2-team-15/static/js/main.d7d20aa2.js",
+    "main.js": "/v44-tier2-team-15/static/js/main.cdcb91ce.js",
     "static/css/942.e93a189d.chunk.css": "/v44-tier2-team-15/static/css/942.e93a189d.chunk.css",
-    "static/js/942.223633f0.chunk.js": "/v44-tier2-team-15/static/js/942.223633f0.chunk.js",
-    "static/js/557.b61f713a.chunk.js": "/v44-tier2-team-15/static/js/557.b61f713a.chunk.js",
+    "static/js/942.f92dbe1d.chunk.js": "/v44-tier2-team-15/static/js/942.f92dbe1d.chunk.js",
+    "static/js/386.4dc7d265.chunk.js": "/v44-tier2-team-15/static/js/386.4dc7d265.chunk.js",
     "static/js/744.3aab0ac5.chunk.js": "/v44-tier2-team-15/static/js/744.3aab0ac5.chunk.js",
     "static/media/Robtronika-Italic.woff": "/v44-tier2-team-15/static/media/Robtronika-Italic.704b1e60c8cc9772cbff.woff",
     "static/media/bg_main.png": "/v44-tier2-team-15/static/media/bg_main.c18ef075f39dd13741d5.png",
@@ -14,14 +14,14 @@
     "static/media/Robtronika-Regular.woff2": "/v44-tier2-team-15/static/media/Robtronika-Regular.538180e8e93fe39211de.woff2",
     "index.html": "/v44-tier2-team-15/index.html",
     "main.34e70326.css.map": "/v44-tier2-team-15/static/css/main.34e70326.css.map",
-    "main.d7d20aa2.js.map": "/v44-tier2-team-15/static/js/main.d7d20aa2.js.map",
+    "main.cdcb91ce.js.map": "/v44-tier2-team-15/static/js/main.cdcb91ce.js.map",
     "942.e93a189d.chunk.css.map": "/v44-tier2-team-15/static/css/942.e93a189d.chunk.css.map",
-    "942.223633f0.chunk.js.map": "/v44-tier2-team-15/static/js/942.223633f0.chunk.js.map",
-    "557.b61f713a.chunk.js.map": "/v44-tier2-team-15/static/js/557.b61f713a.chunk.js.map",
+    "942.f92dbe1d.chunk.js.map": "/v44-tier2-team-15/static/js/942.f92dbe1d.chunk.js.map",
+    "386.4dc7d265.chunk.js.map": "/v44-tier2-team-15/static/js/386.4dc7d265.chunk.js.map",
     "744.3aab0ac5.chunk.js.map": "/v44-tier2-team-15/static/js/744.3aab0ac5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.34e70326.css",
-    "static/js/main.d7d20aa2.js"
+    "static/js/main.cdcb91ce.js"
   ]
 }
