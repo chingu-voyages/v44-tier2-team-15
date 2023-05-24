@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
@@ -14,4 +15,20 @@ export const HeaderStyled = styled.header`
   margin-bottom: 50px;
 `;
 
-export const NavBar = styled.nav``;
+export const HeaderListStyled = styled.ul`
+  display: flex;
+`;
+
+export const ListItemStyled = styled(NavLink)`
+  margin-left: 60px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.55s ease;
+  &:hover {
+    border-color: #b8d0a6;
+    color: #b8d0a6;
+  }
+  &.active {
+    border-color: #b8d0a6;
+    color: #b8d0a6;
+  }
+`;
