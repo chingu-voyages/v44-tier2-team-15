@@ -5,6 +5,6 @@ export const StyledWrapp = styled.div`
   @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 `;

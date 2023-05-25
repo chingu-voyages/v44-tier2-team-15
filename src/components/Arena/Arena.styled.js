@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ArenaWrapp = styled.div`
-  flex-grow: 1;
   min-width: 500px;
   min-height: 535px;
 `;

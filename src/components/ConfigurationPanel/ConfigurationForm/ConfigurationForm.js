@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import toast from 'react-hot-toast';
 import {
   BtnSubmit,
   CheckBox,
@@ -9,6 +9,7 @@ import {
   InputWrap,
   LabelStyled,
   SelectStyled,
+  FlexWrap,
 } from './ConfigurationForm.styled';
 
 const ConfigurationForm = ({ onClose }) => {
@@ -17,7 +18,7 @@ const ConfigurationForm = ({ onClose }) => {
   const [checked, setChecked] = useState(false);
   const [botNameTwo, setBotNameTwo] = useState('');
   const [boolNumberTwo, setBoolNumberTwo] = useState('0');
-  const [speed, setSpeed] = useState('0');
+  const [speed, setSpeed] = useState('1');
   const [operation, setOperation] = useState('AND');
   const [direction, setDirection] = useState('North');
 
@@ -27,11 +28,9 @@ const ConfigurationForm = ({ onClose }) => {
         const bot =
           e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
         setBotNameOne(bot);
-
         break;
       case 'number1':
         setBoolNumberOne(e.target.value);
-
         break;
       case 'skipBot':
         setChecked(prevState => (prevState === false ? true : false));
@@ -39,30 +38,20 @@ const ConfigurationForm = ({ onClose }) => {
       case 'name2':
         const bot2 =
           e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
-        if (botNameOne === bot2) {
-          console.log('Please change the name for second bot');
-        }
         setBotNameTwo(bot2);
-
         break;
-
       case 'number2':
         setBoolNumberTwo(e.target.value);
-
         break;
       case 'operation':
         setOperation(e.target.value);
-
         break;
       case 'speed':
         setSpeed(e.target.value);
-
         break;
       case 'direction':
         setDirection(e.target.value);
-
         break;
-
       default:
         break;
     }
@@ -70,8 +59,14 @@ const ConfigurationForm = ({ onClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (botNameOne === botNameTwo) {
-      console.log('Sorry the names are same');
+    if (!checked && !botNameOne) {
+      toast.error('Please, enter bot name.');
+      return;
+    } else if (checked && (!botNameOne || !botNameTwo)) {
+      toast.error('Please, enter names for two bots.');
+      return;
+    } else if (checked && botNameOne === botNameTwo) {
+      toast.error('Both names are same. Please change them.');
       return;
     } else {
       const firstBot = {
@@ -89,28 +84,29 @@ const ConfigurationForm = ({ onClose }) => {
         operation: operation,
         direction: direction,
       };
-
       const config = JSON.stringify(data);
       localStorage.setItem('configs', config);
+      toast.success('You successfully add configurations');
       onClose();
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <InputWrap>
-        <>
+      <InputWrap styled={checked}>
+        <FlexWrap>
           <LabelStyled htmlFor="name1">
-            Name for bot 1:
+            {checked ? 'Bot 1:' : 'Name for bot 1'}
             <InputName
               id="name1"
               type="text"
               name="name1"
               onChange={handleChange}
+              placeholder="Enter name"
             />
           </LabelStyled>
           <LabelStyled>
-            Boolean for bot 1:
+            Boolean 1:
             <SelectStyled
               id="number1"
               autoFocus={true}
@@ -121,39 +117,22 @@ const ConfigurationForm = ({ onClose }) => {
               <option value="1">1</option>
             </SelectStyled>
           </LabelStyled>
-        </>
-
-        <>
-          <LabelStyled
-            htmlFor="skipBot"
-            style={{
-              color: '#52615d',
-              justifyContent: 'start',
-              margin: '22px auto 22px auto',
-            }}
-          >
-            Add second bot?
-            <CheckBox
-              id="skipBot"
-              name="skipBot"
-              type="checkbox"
-              checked={checked}
-              onChange={handleChange}
-            />
-          </LabelStyled>
+        </FlexWrap>
+        <FlexWrap>
           {checked && (
             <>
               <LabelStyled htmlFor="name2">
-                Name for bot 2:
+                Bot 2:
                 <InputName
                   id="name2"
                   type="text"
                   name="name2"
                   onChange={handleChange}
+                  placeholder="Enter name"
                 />
               </LabelStyled>
               <LabelStyled>
-                Boolean for bot 2:
+                Boolean 2:
                 <SelectStyled
                   id="number2"
                   autoFocus={true}
@@ -166,8 +145,25 @@ const ConfigurationForm = ({ onClose }) => {
               </LabelStyled>
             </>
           )}
-        </>
+        </FlexWrap>
       </InputWrap>
+      <LabelStyled
+        htmlFor="skipBot"
+        style={{
+          color: '#52615d',
+          justifyContent: 'start',
+          margin: '8px auto 8px auto',
+        }}
+      >
+        Add second bot?
+        <CheckBox
+          id="skipBot"
+          name="skipBot"
+          type="checkbox"
+          checked={checked}
+          onChange={handleChange}
+        />
+      </LabelStyled>
       <LabelStyled>
         Boolean operation:
         <SelectStyled
@@ -183,12 +179,12 @@ const ConfigurationForm = ({ onClose }) => {
         </SelectStyled>
       </LabelStyled>
       <LabelStyled htmlFor="speed">
-        Volume:
+        Speed:
         <Input
           type="range"
           id="speed"
           name="speed"
-          min="0"
+          min="1"
           max="10"
           step={1}
           value={speed}
