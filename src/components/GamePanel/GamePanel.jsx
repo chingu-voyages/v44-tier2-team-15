@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import GameControlls from 'components/GameControls/GameControls';
-import Leaderboard from 'components/Leaderboard/Leaderboard';
+import GameControlls from 'components/GamePanel/GameControls/GameControls';
+import Leaderboard from 'components/GamePanel/Leaderboard/Leaderboard';
 import { BtnStyled, PanelWrapp } from './GamePanel.styled';
 import Modal from 'components/Modal';
+import ConfigurationPanel from 'components/ConfigurationPanel/ConfigurationPanel';
 
 const GamePanel = () => {
   const [isModalShown, setIsModalShown] = useState(false);
@@ -20,7 +21,11 @@ const GamePanel = () => {
         <GameControlls />
         <Leaderboard />
       </PanelWrapp>
-      {isModalShown && <Modal onClose={toogleModal} />}
+      {isModalShown && (
+        <Modal onClose={toogleModal}>
+          <ConfigurationPanel onClose={toogleModal} />
+        </Modal>
+      )}
     </>
   );
 };

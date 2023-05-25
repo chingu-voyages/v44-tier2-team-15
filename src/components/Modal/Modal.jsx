@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalDiv, Overlay, Title } from './Modal.styled';
-import ConfigurationForm from 'components/ConfigurationForm/ConfigurationForm';
+import { ModalDiv, Overlay } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, children }) => {
   const closeByBackdrop = e => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -27,10 +26,7 @@ const Modal = ({ onClose }) => {
 
   return createPortal(
     <Overlay onClick={closeByBackdrop}>
-      <ModalDiv>
-        <Title>Choose your configurations</Title>
-        <ConfigurationForm onClose={onClose} />
-      </ModalDiv>
+      <ModalDiv>{children}</ModalDiv>
     </Overlay>,
     modalRoot
   );

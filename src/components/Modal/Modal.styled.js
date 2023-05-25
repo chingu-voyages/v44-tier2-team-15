@@ -29,9 +29,3 @@ export const ModalDiv = styled.div`
   color: ${p => p.theme.colors.superDarkGreen};
   background-color: ${p => p.theme.colors.lightGreen};
 `;
-
-export const Title = styled.h3`
-  font-size: 30px;
-  text-align: center;
-  margin-bottom: ${p => p.theme.space[5]}px;
-`;

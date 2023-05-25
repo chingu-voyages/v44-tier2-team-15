@@ -22,7 +22,7 @@ export const SelectStyled = styled.select`
   min-width: 100px;
   height: 51px;
   margin: 22px 0 22px auto;
-  font-size: ${p => p.theme.fontSizes.s};
+  font-size: 14px;
   line-height: ${p => p.theme.lineHeights.content};
   text-align: center;
   color: ${p => p.theme.colors.medGreen};
@@ -33,7 +33,6 @@ export const SelectStyled = styled.select`
   border-top-right-radius: 80px;
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: 30px;
-
   cursor: pointer;
   @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
     width: 130px;
