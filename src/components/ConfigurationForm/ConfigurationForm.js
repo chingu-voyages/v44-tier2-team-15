@@ -9,6 +9,7 @@ import {
   InputWrap,
   LabelStyled,
   SelectStyled,
+  FlexWrap,
 } from './ConfigurationForm.styled';
 
 const ConfigurationForm = ({ onClose }) => {
@@ -98,19 +99,20 @@ const ConfigurationForm = ({ onClose }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <InputWrap>
-        <>
+      <InputWrap styled={checked}>
+        <FlexWrap>
           <LabelStyled htmlFor="name1">
-            Name for bot 1:
+            {checked ? 'Bot 1:' : 'Name for bot 1'}
             <InputName
               id="name1"
               type="text"
               name="name1"
               onChange={handleChange}
+              placeholder="Enter name"
             />
           </LabelStyled>
           <LabelStyled>
-            Boolean for bot 1:
+            Boolean 1:
             <SelectStyled
               id="number1"
               autoFocus={true}
@@ -121,39 +123,22 @@ const ConfigurationForm = ({ onClose }) => {
               <option value="1">1</option>
             </SelectStyled>
           </LabelStyled>
-        </>
-
-        <>
-          <LabelStyled
-            htmlFor="skipBot"
-            style={{
-              color: '#52615d',
-              justifyContent: 'start',
-              margin: '22px auto 22px auto',
-            }}
-          >
-            Add second bot?
-            <CheckBox
-              id="skipBot"
-              name="skipBot"
-              type="checkbox"
-              checked={checked}
-              onChange={handleChange}
-            />
-          </LabelStyled>
+        </FlexWrap>
+        <FlexWrap>
           {checked && (
             <>
               <LabelStyled htmlFor="name2">
-                Name for bot 2:
+                Bot 2:
                 <InputName
                   id="name2"
                   type="text"
                   name="name2"
                   onChange={handleChange}
+                  placeholder="Enter name"
                 />
               </LabelStyled>
               <LabelStyled>
-                Boolean for bot 2:
+                Boolean 2:
                 <SelectStyled
                   id="number2"
                   autoFocus={true}
@@ -166,8 +151,25 @@ const ConfigurationForm = ({ onClose }) => {
               </LabelStyled>
             </>
           )}
-        </>
+        </FlexWrap>
       </InputWrap>
+      <LabelStyled
+        htmlFor="skipBot"
+        style={{
+          color: '#52615d',
+          justifyContent: 'start',
+          margin: '8px auto 8px auto',
+        }}
+      >
+        Add second bot?
+        <CheckBox
+          id="skipBot"
+          name="skipBot"
+          type="checkbox"
+          checked={checked}
+          onChange={handleChange}
+        />
+      </LabelStyled>
       <LabelStyled>
         Boolean operation:
         <SelectStyled
@@ -183,12 +185,12 @@ const ConfigurationForm = ({ onClose }) => {
         </SelectStyled>
       </LabelStyled>
       <LabelStyled htmlFor="speed">
-        Volume:
+        Speed:
         <Input
           type="range"
           id="speed"
           name="speed"
-          min="0"
+          min="1"
           max="10"
           step={1}
           value={speed}

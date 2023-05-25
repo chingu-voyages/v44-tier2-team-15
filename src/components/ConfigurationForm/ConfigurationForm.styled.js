@@ -4,11 +4,17 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export const InputWrap = styled.div`
+  display: flex;
+  flex-direction: ${p => (p.styled === true ? 'row' : 'column')};
+  gap: 10px;
+`;
+
+export const FlexWrap = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -71,7 +77,7 @@ export const CheckBox = styled.input`
   }
 `;
 export const InputName = styled.input`
-  width: 200px;
+  width: 150px;
   height: 50px;
   border-top-left-radius: 30px;
   border-top-right-radius: 80px;
@@ -81,14 +87,14 @@ export const InputName = styled.input`
   font-family: ${p => p.theme.fonts.main};
   font-style: normal;
   font-weight: ${p => p.theme.fontWeights.normal};
-  font-size: ${p => p.theme.fontSizes.s};
+  font-size: 12px;
   line-height: 18px;
   padding: 0 32px 0 32px;
-  margin: 10px 0 10px auto;
+  margin: 10px 0 10px 10px;
   color: ${p => p.theme.colors.medGreen};
   background: ${p => p.theme.colors.superLightGreen};
   @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
-    width: 250px;
+    width: 200px;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -104,6 +110,9 @@ export const InputName = styled.input`
   &:focus {
     border: none;
     outline: none;
+  }
+  &:placeholder-shown {
+    font-size: 11px;
   }
 `;
 
@@ -121,7 +130,7 @@ export const BtnSubmit = styled.button`
   box-sizing: border-box;
   min-width: 113px;
   margin-left: auto;
-  margin-top: ${p => p.theme.space[4]}px;
+  margin-top: ${p => p.theme.space[2]}px;
   margin-right: auto;
   font-family: ${p => p.theme.fonts.main};
   font-style: normal;

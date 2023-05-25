@@ -28,7 +28,7 @@ const Modal = ({ onClose }) => {
   return createPortal(
     <Overlay onClick={closeByBackdrop}>
       <ModalDiv>
-        <Title>Choose configuration</Title>
+        <Title>Choose your configurations</Title>
         <ConfigurationForm onClose={onClose} />
       </ModalDiv>
     </Overlay>,
