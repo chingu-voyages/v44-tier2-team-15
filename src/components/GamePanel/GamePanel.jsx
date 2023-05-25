@@ -2,7 +2,7 @@ import { useState } from 'react';
 import GameControlls from 'components/GamePanel/GameControls/GameControls';
 import Leaderboard from 'components/GamePanel/Leaderboard/Leaderboard';
 import { BtnStyled, PanelWrapp } from './GamePanel.styled';
-import Modal from 'components/Modal';
+import Modal from 'components/Modal/Modal';
 import ConfigurationPanel from 'components/ConfigurationPanel/ConfigurationPanel';
 
 const GamePanel = () => {
