@@ -14,8 +14,4 @@ export const Icon = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  &:hover,
-  &:focus {
-    color: red;
-  }
 `;

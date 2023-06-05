@@ -66,6 +66,7 @@ export const CheckBox = styled.input`
   height: 20px;
   margin-left: 10px;
   background-color: ${p => p.theme.colors.medBrown};
+  cursor: pointer;
   &:checked {
     color: red;
     background-color: ${p => p.theme.colors.medBrown};
@@ -116,6 +117,7 @@ export const InputName = styled.input`
 `;
 
 export const Input = styled.input`
+  cursor: pointer;
   color: ${p => p.theme.colors.superLightGreen};
   background: ${p => p.theme.colors.lightGreen};
 `;

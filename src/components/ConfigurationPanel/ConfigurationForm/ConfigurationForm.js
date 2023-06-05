@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { nanoid } from 'nanoid';
 import {
   BtnSubmit,
   CheckBox,
@@ -70,12 +71,18 @@ const ConfigurationForm = ({ onClose }) => {
       return;
     } else {
       const firstBot = {
-        botName1: botNameOne,
-        botNumber1: boolNumberOne,
+        id: nanoid(),
+        botName: botNameOne,
+        botNumber: boolNumberOne,
+        wins: 0,
+        losses: 0,
       };
       const secondtBot = {
-        botName2: botNameTwo,
-        botNumber2: boolNumberTwo,
+        id: nanoid(),
+        botName: botNameTwo,
+        botNumber: boolNumberTwo,
+        wins: 0,
+        losses: 0,
       };
       const data = {
         bots: checked ? [firstBot, secondtBot] : [firstBot],
@@ -185,7 +192,7 @@ const ConfigurationForm = ({ onClose }) => {
           id="speed"
           name="speed"
           min="1"
-          max="10"
+          max="8"
           step={1}
           value={speed}
           onChange={handleChange}
