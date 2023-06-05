@@ -192,7 +192,7 @@ const ConfigurationForm = ({ onClose }) => {
           id="speed"
           name="speed"
           min="1"
-          max="10"
+          max="8"
           step={1}
           value={speed}
           onChange={handleChange}
