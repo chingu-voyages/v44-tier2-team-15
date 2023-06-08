@@ -165,7 +165,7 @@ Example:
 👤 **Francis Wayungi**
 
 - GitHub: [@githubhandle](https://github.com/wayungi)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- Twitter: [@twitterhandle](https://twitter.com/FrancisWayungi)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/francis-wayungi)
 
 👤 **Hakan Urtimur**
