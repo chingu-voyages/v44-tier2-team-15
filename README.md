@@ -171,7 +171,7 @@ Example:
 👤 **Hakan Urtimur**
 
 - GitHub: [@githubhandle](https://github.com/hakanurtimur)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- Twitter: [@twitterhandle](https://twitter.com/RubenGrizzly)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/hakanurtimur)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
