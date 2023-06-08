@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.css": "/v44-tier2-team-15/static/css/main.1a9fafd7.css",
-    "main.js": "/v44-tier2-team-15/static/js/main.09af1bef.js",
-    "static/css/870.11f41c35.chunk.css": "/v44-tier2-team-15/static/css/870.11f41c35.chunk.css",
-    "static/js/870.a1e167e7.chunk.js": "/v44-tier2-team-15/static/js/870.a1e167e7.chunk.js",
-    "static/js/519.7e231d0b.chunk.js": "/v44-tier2-team-15/static/js/519.7e231d0b.chunk.js",
+    "main.css": "/v44-tier2-team-15/static/css/main.17654e45.css",
+    "main.js": "/v44-tier2-team-15/static/js/main.dde550e7.js",
+    "static/js/730.e9f11c96.chunk.js": "/v44-tier2-team-15/static/js/730.e9f11c96.chunk.js",
+    "static/js/561.6a904b0c.chunk.js": "/v44-tier2-team-15/static/js/561.6a904b0c.chunk.js",
     "static/js/975.6d4041b2.chunk.js": "/v44-tier2-team-15/static/js/975.6d4041b2.chunk.js",
     "static/media/Robtronika-Italic.woff": "/v44-tier2-team-15/static/media/Robtronika-Italic.704b1e60c8cc9772cbff.woff",
     "static/media/bg_main.png": "/v44-tier2-team-15/static/media/bg_main.c18ef075f39dd13741d5.png",
@@ -13,15 +12,14 @@
     "static/media/colored_castle-min.png": "/v44-tier2-team-15/static/media/colored_castle-min.997d172a1d508fd11e0a.png",
     "static/media/Robtronika-Regular.woff2": "/v44-tier2-team-15/static/media/Robtronika-Regular.538180e8e93fe39211de.woff2",
     "index.html": "/v44-tier2-team-15/index.html",
-    "main.1a9fafd7.css.map": "/v44-tier2-team-15/static/css/main.1a9fafd7.css.map",
-    "main.09af1bef.js.map": "/v44-tier2-team-15/static/js/main.09af1bef.js.map",
-    "870.11f41c35.chunk.css.map": "/v44-tier2-team-15/static/css/870.11f41c35.chunk.css.map",
-    "870.a1e167e7.chunk.js.map": "/v44-tier2-team-15/static/js/870.a1e167e7.chunk.js.map",
-    "519.7e231d0b.chunk.js.map": "/v44-tier2-team-15/static/js/519.7e231d0b.chunk.js.map",
+    "main.17654e45.css.map": "/v44-tier2-team-15/static/css/main.17654e45.css.map",
+    "main.dde550e7.js.map": "/v44-tier2-team-15/static/js/main.dde550e7.js.map",
+    "730.e9f11c96.chunk.js.map": "/v44-tier2-team-15/static/js/730.e9f11c96.chunk.js.map",
+    "561.6a904b0c.chunk.js.map": "/v44-tier2-team-15/static/js/561.6a904b0c.chunk.js.map",
     "975.6d4041b2.chunk.js.map": "/v44-tier2-team-15/static/js/975.6d4041b2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a9fafd7.css",
-    "static/js/main.09af1bef.js"
+    "static/css/main.17654e45.css",
+    "static/js/main.dde550e7.js"
   ]
 }
