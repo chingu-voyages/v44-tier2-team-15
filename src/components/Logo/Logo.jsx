@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import classes from './LogoSvg.module.css';
+import { LogoName, LogoWrap } from './Logo.styed';
 
-function LogoSvg(props) {
+const Logo = () => {
   const [isHover, setHover] = useState(false);
 
   const onMouseEnterHandler = () => {
@@ -16,8 +16,8 @@ function LogoSvg(props) {
   const colorOfHead = !isHover ? '#B8D0A6' : '#1f1a24';
   const colorOfStroke = isHover ? '#D26F49' : '#1f1a24';
   return (
-    <div
-      className={classes.logo}
+    <LogoWrap
+      to={'/'}
       onMouseLeave={onMouseLeaveHandler}
       onMouseEnter={onMouseEnterHandler}
     >
@@ -35,7 +35,7 @@ function LogoSvg(props) {
             d="M0 0H48V48H0z"
           ></path>
           <rect
-            style={{ transition: 'all 0.55s ease' }}
+            style={{ transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)' }}
             width="30"
             height="24"
             x="9"
@@ -46,14 +46,14 @@ function LogoSvg(props) {
             rx="2"
           ></rect>
           <circle
-            style={{ transition: 'all 0.55s ease' }}
+            style={{ transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)' }}
             cx="17"
             cy="26"
             r="2"
             fill={colorOfEyes}
           ></circle>
           <circle
-            style={{ transition: 'all 0.55s ease' }}
+            style={{ transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)' }}
             cx="31"
             cy="26"
             r="2"
@@ -64,7 +64,7 @@ function LogoSvg(props) {
             d="M20 32a2 2 0 100 4v-4zm8 4a2 2 0 100-4v4zm-8 0h8v-4h-8v4z"
           ></path>
           <path
-            style={{ transition: 'all 0.55s ease' }}
+            style={{ transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)' }}
             stroke={colorOfStroke}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -72,7 +72,7 @@ function LogoSvg(props) {
             d="M24 10v8M4 26v8M44 26v8"
           ></path>
           <circle
-            style={{ transition: 'all 0.55s ease' }}
+            style={{ transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)' }}
             cx="24"
             cy="8"
             r="2"
@@ -81,14 +81,19 @@ function LogoSvg(props) {
           ></circle>
         </g>
       </svg>
-      <div className={classes.title}>
+      <LogoName>
         Logic{' '}
-        <span style={{ transition: 'all 0.55s ease', color: colorOfTitle }}>
+        <span
+          style={{
+            transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+            color: colorOfTitle,
+          }}
+        >
           Warriors
         </span>
-      </div>
-    </div>
+      </LogoName>
+    </LogoWrap>
   );
-}
+};
 
-export default LogoSvg;
+export default Logo;

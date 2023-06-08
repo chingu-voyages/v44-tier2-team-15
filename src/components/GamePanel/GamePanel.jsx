@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import GameControlls from 'components/GamePanel/GameControls/GameControls';
-import Leaderboard from 'components/GamePanel/Leaderboard/Leaderboard';
+import GameControlls from 'components/GamePanel/GameControls';
+import Leaderboard from 'components/GamePanel/Leaderboard';
+import Modal from 'components/Modal';
+import ConfigurationPanel from 'components/ConfigurationPanel';
 import { BtnStyled, PanelWrapp } from './GamePanel.styled';
-import Modal from 'components/Modal/Modal';
-import ConfigurationPanel from 'components/ConfigurationPanel/ConfigurationPanel';
-
 const GamePanel = () => {
   const [isModalShown, setIsModalShown] = useState(false);
 

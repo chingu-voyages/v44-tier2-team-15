@@ -4,8 +4,9 @@ import { ThemeProvider } from 'styled-components';
 import GlobalFonts from 'fonts/fonts';
 import { GlobalStyle } from './GlobalStyle';
 import { theme } from 'constants/theme';
-import SharedLayout from './SharedLayout/SharedLayout';
 import { Toaster } from 'react-hot-toast';
+import SharedLayout from './SharedLayout/SharedLayout';
+
 const HomePage = lazy(() => import('pages/MainPage'));
 const GamePage = lazy(() => import('pages/GamePage'));
 

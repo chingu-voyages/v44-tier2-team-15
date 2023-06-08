@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
@@ -10,7 +11,7 @@ export const StyledFooter = styled.footer`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  color: #fff;
+  color: ${p => p.theme.colors.superLightgray};
   border-radius: 13% 13% 0 0;
   gap: 20px;
   width: 100%;
@@ -25,32 +26,39 @@ export const StyledSubContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   width: 80%;
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: ${p => p.theme.lineHeights.main};
+  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
+    margin-right: 10px;
+    font-size: ${p => p.theme.fontSizes.s};
+  }
+  @media screen and (min-width: ${p => p.theme.breakpoints[2]}) {
+    margin-right: 15px;
+  }
 `;
 
 export const StyledChildContainer = styled.div`
   text-align: center;
 `;
 
+export const DevLinkList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+`;
+export const DevLinkItem = styled.li`
+  text-align: left;
+  font-size: 12px;
+`;
+export const DevLink = styled(Link)`
+  width: 100%;
+  transition: ${p => p.theme.transitions.main};
+  &:hover {
+    color: ${p => p.theme.colors.hoverLink};
+  }
+`;
 export const StyledCopyrightText = styled.p`
   text-align: center;
-  font-size: 0.5rem;
-  margin-top: 20px;
-`;
-
-
-
-
-
-export const StyledText = styled.p`
-  margin-right: 5px;
-  font-size: 0.5rem;
-  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
-    margin-right: 10px;
-  }
-  @media screen and (min-width: ${p => p.theme.breakpoints[2]}) {
-    margin-right: 15px;
-    font-size: ${p => p.theme.fontSizes.l};
-    font-weight: ${p => p.theme.fontWeights.bold};
-    line-height: ${p => p.theme.lineHeights.main};
-  }
+  font-size: ${p => p.theme.fontSizes.xs};
+  margin-top: 10px;
 `;

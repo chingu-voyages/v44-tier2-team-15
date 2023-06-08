@@ -22,7 +22,6 @@ export const TdStyled = styled.td`
 
 export const ThStyled = styled.th`
   padding: 20px;
-
   border: 1px solid ${p => p.theme.colors.medGreen};
 `;
 
