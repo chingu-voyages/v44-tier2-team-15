@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const ControllsWrapp = styled.div``;
-
 export const BtnStyled = styled.button`
   display: flex;
   align-items: center;
@@ -19,7 +17,7 @@ export const BtnStyled = styled.button`
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border: ${p => p.theme.borders.none};
   border-radius: ${p => p.theme.radii.normal};
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: ${p => p.theme.transitions.main};
   &:hover {
     background-color: ${p => p.theme.colors.medBrown};
     color: ${p => p.theme.colors.sandy};

@@ -1,9 +1,9 @@
-import { Container, StyledLink } from './HomePageContainer.styled';
 import { useState } from 'react';
+import Hero from 'components/Hero';
+import MainContainer from 'components/MainContainer';
+import { Container, StyledLink, HeroTitle } from './HomePageContainer.styled';
 
-import Hero from 'images/hero/Hero';
-
-export default function HomaPageContainer({ children }) {
+const HomaPageContainer = ({ children }) => {
   const [isHover, setIsHover] = useState(false);
 
   const mauseEnterHandler = () => {
@@ -14,20 +14,27 @@ export default function HomaPageContainer({ children }) {
   };
 
   return (
-    <Container>
+    <MainContainer>
+      <Container>
         <Hero isHover={isHover} />
-      <div>
-        <h1>Logic Warriors</h1>
-        <p>
-          Welcome to Logic Warriors! Click to{' '}
-          <StyledLink
-            onMouseLeave={mauseLeaveHandler}
-            onMouseEnter={mauseEnterHandler}
-          >
-            BATTLE
-          </StyledLink>
-        </p>
-      </div>
-    </Container>
+        <div>
+          <HeroTitle>Logic Warriors</HeroTitle>
+          <p>
+            Welcome to Logic Warriors!
+            <br></br>
+            Click to{' '}
+            <StyledLink
+              to={'/game'}
+              onMouseLeave={mauseLeaveHandler}
+              onMouseEnter={mauseEnterHandler}
+            >
+              BATTLE
+            </StyledLink>
+          </p>
+        </div>
+      </Container>
+    </MainContainer>
   );
-}
+};
+
+export default HomaPageContainer;

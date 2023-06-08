@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Bootlebots</b></h3>
+  <h3><b>Logic Warriors</b></h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -30,11 +30,14 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 [Logic Warriors] <a name="Logic Warriors">Logic Warriors</a>
 
 > Describe your project in 1 or 2 sentences.
 
-**[your_project__name]** is a...
+**[Logic Warriors]** is a game that is not only fun, but also an aid in helping
+to understand basic Boolean logic. This game has an arena in which your bots
+move at random speeds and trajectories. The Bots are assigned boolean values of
+0 or 1 and boolean operations - AND, OR, NOR, NOT.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -68,7 +71,7 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://chingu-voyages.github.io/v44-tier2-team-15/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,26 +87,17 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
-
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
 Example commands:
 
-```sh
+<!-- ```sh
   cd my-folder
   git clone git@github.com:myaccount/my-project.git
 ```
---->
+---> -->
 
 ### Install
 
@@ -162,17 +156,23 @@ Example:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
 👤 **Olya Zamlynska**
 
 - GitHub: [@githubhandle](https://github.com/olhazamlynska)
 - Twitter: [@twitterhandle](https://twitter.com/olyazamlynska)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/olhazamlynska)
+
+👤 **Francis Wayungi**
+
+- GitHub: [@githubhandle](https://github.com/wayungi)
+- Twitter: [@twitterhandle](https://twitter.com/FrancisWayungi)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/francis-wayungi)
+
+👤 **Hakan Urtimur**
+
+- GitHub: [@githubhandle](https://github.com/hakanurtimur)
+- Twitter: [@twitterhandle](https://twitter.com/RubenGrizzly)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/hakanurtimur)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

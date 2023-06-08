@@ -1,7 +1,8 @@
-import ConfigurationForm from 'components/ConfigurationPanel/ConfigurationForm';
-import { Title, Icon } from './ConfigurationPanel.styled';
 import { IconContext } from 'react-icons';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import ConfigurationForm from 'components/ConfigurationPanel/ConfigurationForm';
+import { Title, Icon } from './ConfigurationPanel.styled';
+
 const ConfigurationPanel = ({ onClose }) => {
   return (
     <>

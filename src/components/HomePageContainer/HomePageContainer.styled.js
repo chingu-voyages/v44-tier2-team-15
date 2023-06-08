@@ -23,10 +23,16 @@ export const Container = styled.div`
   }
 `;
 
+export const HeroTitle = styled.h1`
+  margin-bottom: ${p => p.theme.space[5]}px;
+`;
 export const StyledLink = styled(Link)`
-  color: ${p => p.theme.colors[4]};
-  transition: all 0.5s ease;
+  text-decoration: underline;
+  font-weight: ${p => p.theme.fontWeights.bold};
+  color: ${p => p.theme.colors.medGreen};
+  transition: ${p => p.theme.transitions.main};
+
   &:hover {
-    color: #d26f49;
+    color: ${p => p.theme.colors.hoverLink};
   }
 `;

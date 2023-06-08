@@ -1,5 +1,4 @@
-import LogoSvg from 'images/logo/LogoSvg';
-
+import Logo from 'components/Logo';
 import {
   HeaderListStyled,
   HeaderStyled,
@@ -9,13 +8,13 @@ import {
 const Header = () => {
   return (
     <HeaderStyled>
-      <LogoSvg />
+      <Logo />
       <HeaderListStyled>
         <li>
-          <ListItemStyled to="game">Game</ListItemStyled>
+          <ListItemStyled to="/">About</ListItemStyled>
         </li>
         <li>
-          <ListItemStyled to="/">About</ListItemStyled>
+          <ListItemStyled to="game">Game</ListItemStyled>
         </li>
       </HeaderListStyled>
     </HeaderStyled>

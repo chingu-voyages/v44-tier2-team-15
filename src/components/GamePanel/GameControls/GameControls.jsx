@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ControllsWrapp, BtnStyled } from './GameControls.styled';
+import { BtnStyled } from './GameControls.styled';
 
 const GameControlls = () => {
   const [isButtleOn, setIsButtleOn] = useState(false);
@@ -13,11 +13,11 @@ const GameControlls = () => {
 
   const buttonText = isButtleOn ? 'Stop' : 'Battle';
   return (
-    <ControllsWrapp>
+    <div>
       <BtnStyled type="button" onClick={handleClick}>
         {buttonText}
       </BtnStyled>
-    </ControllsWrapp>
+    </div>
   );
 };
 

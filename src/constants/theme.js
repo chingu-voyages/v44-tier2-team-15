@@ -14,6 +14,8 @@ export const theme = {
     medBlue: '#7895ab',
     lightBlue: '#a8cfda',
     black: '#1f1a24',
+    hoverLink: '#d26f49',
+    activeHeaderLink: '#b8d0a6',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
@@ -25,6 +27,7 @@ export const theme = {
     bold: 700,
   },
   fontSizes: {
+    xs: '12px',
     s: '16px',
     m: '18px',
     l: '20px',

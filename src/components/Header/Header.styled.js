@@ -22,13 +22,13 @@ export const HeaderListStyled = styled.ul`
 export const ListItemStyled = styled(NavLink)`
   margin-left: 60px;
   border-bottom: 2px solid transparent;
-  transition: all 0.55s ease;
+  transition: ${p => p.theme.transitions.main};
   &:hover {
-    border-color: #b8d0a6;
-    color: #b8d0a6;
+    color: ${p => p.theme.colors.activeHeaderLink};
+    border-color: ${p => p.theme.colors.activeHeaderLink};
   }
   &.active {
-    border-color: #b8d0a6;
-    color: #b8d0a6;
+    color: ${p => p.theme.colors.activeHeaderLink};
+    border-color: ${p => p.theme.colors.activeHeaderLink};
   }
 `;
